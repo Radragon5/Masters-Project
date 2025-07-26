@@ -6,10 +6,12 @@ import matplotlib.patches as mpatches
 from sklearn.decomposition import PCA 
 from sklearn.preprocessing import StandardScaler
 from mpl_toolkits.mplot3d import Axes3D
+from scipy.spatial import distance
+import seaborn as sns
 
 # Set base path
 #data_path = '/data/home/bt24981/pca/2025-05-13'
-data_path = 'C:/Users/mihai/OneDrive - Queen Mary, University of London/Research Project/HPC/pca/2025-06-30'
+data_path = 'C:/Users/mihai/OneDrive - Queen Mary, University of London/Research Project/HPC/pca/2025-07-26'
 
 # set file paths
 input_file  = f'{data_path}/model_data.csv'
@@ -84,3 +86,49 @@ crohnspatch = mpatches.Patch(color='blue',label='Non-Causable')
 plt.legend(handles=[ctrlpatch,crohnspatch],loc='upper right',ncol=2)
 #plt.title('First, Second and Third Principal Components')
 plt.savefig('pca_1and2and3.png')
+
+# Use 3 PCs for Mahalanobis distance
+pcs_used = X_scores[[0, 1, 2]]
+cov_matrix = np.cov(pcs_used, rowvar=False)
+inv_cov_matrix = np.linalg.inv(cov_matrix)
+mean_vec = pcs_used.mean().values
+
+# Calculate Mahalanobis distances
+mahal = pcs_used.apply(lambda row: distance.mahalanobis(row, mean_vec, inv_cov_matrix), axis=1)
+X_scores['mahalanobis'] = mahal
+
+# Outliers at 99.9th percentile 
+threshold_mahal = np.percentile(mahal, 99.9)
+outliers_mahal = X_scores[X_scores['mahalanobis'] > threshold_mahal]
+
+print("Outliers based on Mahalanobis distance:")
+print(outliers_mahal)
+outliers_mahal.to_csv(f'{data_path}/pca_mahal_outliers.csv')
+
+# Draw Histogram of Mahalanobis distribution
+plt.figure(figsize=(10, 6))
+
+# Generate histogram manually to access bar data
+counts, bins, patches = plt.hist(X_scores['mahalanobis'], bins=30, color='skyblue', edgecolor='black')
+
+# Add labels on top of each bar
+for count, bin_edge in zip(counts, bins):
+    if count > 0:
+        plt.text(
+            x=bin_edge + (bins[1] - bins[0]) / 2,  # center of the bar
+            y=count + 0.5,  # slight offset above the bar
+            s=str(int(count)),
+            ha='center',
+            fontsize=8
+        )
+
+# Add vertical threshold line
+plt.axvline(x=threshold_mahal, color='red', linestyle='--', label=f'99.9th percentile ({round(threshold_mahal, 2)})')
+
+# Axis labels and title
+#plt.title('Distribution of Mahalanobis Distances in PCA Space')
+plt.xlabel('Mahalanobis Distance')
+plt.ylabel('Frequency')
+plt.legend()
+#plt.tight_layout()
+plt.savefig(f'{data_path}/mahalanobis_histogram.png')
