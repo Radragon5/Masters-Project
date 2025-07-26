@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from mpl_toolkits.mplot3d import Axes3D
 from scipy.spatial import distance
 import seaborn as sns
+from scipy.stats import chi2
 
 # Set base path
 #data_path = '/data/home/bt24981/pca/2025-05-13'
@@ -132,3 +133,13 @@ plt.ylabel('Frequency')
 plt.legend()
 #plt.tight_layout()
 plt.savefig(f'{data_path}/mahalanobis_histogram.png')
+
+# Calcualte p-values of top 5
+n_pcs = pcs_used.shape[1]
+X_scores['mahalanobis_sq'] = X_scores['mahalanobis'] ** 2
+X_scores['mahalanobis_chi2_p'] = 1 - chi2.cdf(X_scores['mahalanobis_sq'], df=n_pcs)
+
+# Show worst 5 outliers with p-values
+worst_outliers = X_scores.sort_values('mahalanobis', ascending=False).head(5)
+print(worst_outliers[['mahalanobis', 'mahalanobis_chi2_p']])
+worst_outliers.to_csv(f'{data_path}/pca_mahal_worst_outliers.csv')
