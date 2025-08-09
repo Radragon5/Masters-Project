@@ -25,7 +25,7 @@ Name</td><td></td><td>Language</td><td>Name</td></tr>
     <th>Programming Language</th>
     <th>Full Name</th>
   </tr>
-<tr><td>Step 1-1</td></td><td><td>R</td></td><td><td>Step 1-1 Find Lead SNPs</td></tr>
+<tr><td>Step 1-1</td><td>R</td><td>Step 1-1 Find Lead SNPs</td></tr>
 <tr><td>Step 1-2</td><td>R</td><td>Step 1-2 Find SNPs Within 500kb</td></tr>
 <tr><td>Step 2-1</td><td>R</td><td>Step 2-1 Get ClinVar Phenotype List</td></tr>
 <tr><td>Step 3-1</td><td>R</td><td>Step 3-1 Get RSIDs From Biomart</td></tr>
