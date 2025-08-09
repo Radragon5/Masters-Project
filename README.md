@@ -18,6 +18,7 @@ Table 2 - Summary of Programs Used in this Project
 
 Abbreviated	Programming	Full
 Name		Language	Name
+
 Step 1-1	R			Step 1-1 Find Lead SNPs
 Step 1-2	R			Step 1-2 Find SNPs Within 500kb
 Step 2-1	R			Step 2-1 Get ClinVar Phenotype List
