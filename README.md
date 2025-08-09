@@ -20,21 +20,11 @@ Abbreviated</td><td>Programming</td><td>Full</td></tr>
 Name</td><td></td><td>Language</td><td>Name</td></tr>
 
 <table>
-  <tr><td>
+  <tr>
     <th>Abbreviated Name</th>
     <th>Programming Language</th>
     <th>Full Name</th>
-  </td></tr>
-  <tr><td>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </td></tr>
-  <tr><td>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </td></tr>
+  </tr>
 <tr><td>Step 1-1</td></td><td><td>R</td></td><td><td>Step 1-1 Find Lead SNPs</td></tr>
 <tr><td>Step 1-2</td><td>R</td><td>Step 1-2 Find SNPs Within 500kb</td></tr>
 <tr><td>Step 2-1</td><td>R</td><td>Step 2-1 Get ClinVar Phenotype List</td></tr>
