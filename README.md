@@ -14,10 +14,7 @@ August 2025
 Code Availability</td></tr>
 All code used in the project has been deposited in GitHub and can be found in at https://github.com/Radragon5/Masters-Project
 
-Table 2 - Summary of Programs Used in this Project
-
-Abbreviated</td><td>Programming</td><td>Full</td></tr>
-Name</td><td></td><td>Language</td><td>Name</td></tr>
+Table 2 Summary of Programs Used in this Project
 
 <table>
   <tr>
