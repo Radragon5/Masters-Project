@@ -19,6 +19,25 @@ Table 2 - Summary of Programs Used in this Project
 Abbreviated	Programming	Full<br/>
 Name		Language	Name<br/>
 
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>
+
+
 Step 1-1	R			Step 1-1 Find Lead SNPs<br/>
 Step 1-2	R			Step 1-2 Find SNPs Within 500kb<br/>
 Step 2-1	R			Step 2-1 Get ClinVar Phenotype List<br/>
