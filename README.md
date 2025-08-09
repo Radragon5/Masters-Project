@@ -35,10 +35,7 @@ Name		Language	Name</tr>
     <td>Francisco Chang</td>
     <td>Mexico</td>
   </tr>
-
-
-
-<tr>Step 1-1	R			Step 1-1 Find Lead SNPs</tr>
+<tr><td>Step 1-1</td>	<td>R</td>			<td>Step 1-1 Find Lead SNPs</td></tr>
 <tr>Step 1-2	R			Step 1-2 Find SNPs Within 500kb</tr>
 <tr>Step 2-1	R			Step 2-1 Get ClinVar Phenotype List</tr>
 <tr>Step 3-1	R			Step 3-1 Get RSIDs From Biomart</tr>
